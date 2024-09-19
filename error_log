@@ -1,0 +1,130 @@
+[31-Jul-2023 07:37:24 UTC] PHP Fatal error:  Cannot use [] for reading in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 992
+[10-Aug-2023 04:33:02 UTC] PHP Warning:  require(/home/sassolut/public_html/Kaci/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/sassolut/public_html/Kaci/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sassolut/public_html/Kaci/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:03 UTC] PHP Warning:  require(/home/sassolut/public_html/Kaci/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/sassolut/public_html/Kaci/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sassolut/public_html/Kaci/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:12 UTC] PHP Warning:  require(/home/sassolut/public_html/Kaci/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/sassolut/public_html/Kaci/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sassolut/public_html/Kaci/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:13 UTC] PHP Warning:  require(/home/sassolut/public_html/Kaci/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/sassolut/public_html/Kaci/index.php on line 34
+[10-Aug-2023 04:33:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/sassolut/public_html/Kaci/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sassolut/public_html/Kaci/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/sassolut/public_html/Kaci/index.php on line 34
+[25-Aug-2023 10:27:26 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:27:46 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:06 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:26 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:33 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:33 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:33 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:34 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:34 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:28:52 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:29:12 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:29:24 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:29:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:29:52 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:30:12 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:30:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:30:52 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:31:12 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:31:41 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:31:56 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:02 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:02 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:16 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:20 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:22 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:23 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:23 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:24 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:24 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:24 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:25 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:26 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:29 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:30 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:34 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:32:42 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:33:02 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:33:22 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:33:28 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:33:32 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:33:42 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:02 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:04 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:22 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:25 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:42 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:34:57 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:35:02 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:35:08 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:35:12 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 10:35:22 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/sassolut/public_html/Kaci/app/Http/Controllers/AdminController.php on line 372
+[25-Aug-2023 12:07:52 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:07:52 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:07:52 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:07:52 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:00 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:16 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:21 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:21 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:23 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:23 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:24 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:24 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:24 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:43 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:43 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:46 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:46 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:46 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:46 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:08:46 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:01 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:01 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:03 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:03 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:03 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:04 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:04 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:09:13 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:10:16 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:10:16 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:10:16 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:10:16 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[25-Aug-2023 12:10:17 UTC] PHP Fatal error:  Cannot use App\Models\Auto_Reply as Auto_Reply because the name is already in use in /home/sassolut/public_html/Kaci/app/Http/Controllers/AppController.php on line 64
+[06-Mar-2024 20:01:57 UTC] PHP Warning:  require(/home/sassolut/public_html/Kaci_Updated/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/sassolut/public_html/Kaci_Updated/index.php on line 34
+[06-Mar-2024 20:01:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/sassolut/public_html/Kaci_Updated/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/sassolut/public_html/Kaci_Updated/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/sassolut/public_html/Kaci_Updated/index.php on line 34
+[01-Apr-2024 11:53:39 UTC] PHP Fatal error:  Cannot use Illuminate\Http\Request as Request because the name is already in use in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 34
+[30-Apr-2024 09:09:12 UTC] PHP Fatal error:  Cannot use App\Models\Agencies as Agencies because the name is already in use in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 57
+[24-May-2024 10:52:30 UTC] PHP Fatal error:  Cannot use App\Models\Group_chat as Group_chat because the name is already in use in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 59
+[10-Jun-2024 12:39:30 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/sassolut/public_html/Kaci_Updated/vendor/composer/platform_check.php on line 24
+[10-Jun-2024 12:39:39 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/sassolut/public_html/Kaci_Updated/vendor/composer/platform_check.php on line 24
+[10-Jun-2024 12:39:55 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/sassolut/public_html/Kaci_Updated/vendor/composer/platform_check.php on line 24
+[10-Jun-2024 12:40:02 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/sassolut/public_html/Kaci_Updated/vendor/composer/platform_check.php on line 24
+[10-Jun-2024 12:41:05 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/sassolut/public_html/Kaci_Updated/vendor/composer/platform_check.php on line 24
+[24-Jul-2024 11:04:33 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7157
+[24-Jul-2024 11:28:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7157
+[24-Jul-2024 13:04:11 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\AdminController::nullifyPreviousReply() in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7038
+[24-Jul-2024 13:05:11 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\AdminController::nullifyPreviousReply() in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7038
+[24-Jul-2024 13:06:06 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\AdminController::nullifyPreviousReply() in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7038
+[24-Jul-2024 13:06:11 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\AdminController::nullifyPreviousReply() in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AdminController.php on line 7038
+[02-Aug-2024 11:24:33 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\AppController::formatCount() in /home/sassolut/public_html/Kaci_Updated/app/Http/Controllers/AppController.php on line 10313
