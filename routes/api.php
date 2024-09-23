@@ -402,6 +402,8 @@ Route::get('/all-notification/{id}', [AppController::class,'all_notification']);
 Route::get('/read-notification/{id}', [AppController::class,'read_notification']);
 Route::get('agency-all-notification/{id}', [AdminController::class,'agency_all_notification']);
 Route::get('/read-all-notifications/{id}', [AdminController::class, 'read_all_agency_notifications']);
+Route::get('/read-subacc-notification/{id}', [AdminController::class, 'read_subacc_notification']);
+
 
 Route::post('/store-subaccount', [AdminController::class,'store_subaccount']);
 Route::post('/edit-subaccount/{id}', [AdminController::class,'edit_subaccount']);

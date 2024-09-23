@@ -9274,25 +9274,25 @@ public function agency_all_notification($id)
     $notificationTypes = [];
 
     // Add notification types based on privileges
-    if ($privileges->consultation_management) {
+    if (isset($privileges->consultation_management->view) && $privileges->consultation_management->view === true) {
         $notificationTypes[] = 'consultation';
     }
-    if ($privileges->ambulance_management) {
+    if (isset($privileges->ambulance_management->view) && $privileges->ambulance_management->view ===true ) {
         $notificationTypes[] = 'ambulance';
     }
-    if ($privileges->emergency_management) {
+    if (isset($privileges->emergency_management->view) && $privileges->emergency_management->view === true) {
         $notificationTypes[] = 'emergency';
     }
-    if ($privileges->ireport_management) {
+    if (isset($privileges->ireport_management->view) && $privileges->ireport_management->view === true) {
         $notificationTypes[] = 'ireport';
     }
-    if ($privileges->travelsafe_management) {
+    if (isset($privileges->travelsafe_management->view) && $privileges->travelsafe_management->view === true ) {
         $notificationTypes[] = 'travelsafe';
     }
-    if ($privileges->suggestion_management) {
+    if (isset($privileges->suggestion_management->view) && $privileges->suggestion_management->view === true) {
         $notificationTypes[] = 'suggestion';
     }
-    if ($privileges->feedback_management) {
+    if (isset($privileges->feedback_management->view) &&$privileges->feedback_management->view ===true ) {
         $notificationTypes[] = 'feedback';
     }
 
@@ -9405,37 +9405,67 @@ public function agency_all_notification($id)
     
             
             
-    public function get_module_chat(Request $request , $id){
-        
+    public function get_module_chat(Request $request , $id)
+    {
+      
         $request->validate([
             'module' => 'required'
-            ]);
-            
-            
-            
-        $groupchat  = Group_Chat::where('module_id', $id)->where('module', $request->module)->first();
+        ]);
         
-        if($groupchat){
+       
+        $groupchat  = Group_Chat::where('module_id', $id)
+                                ->where('module', $request->module)
+                                ->first();
+    
+        $media = null;
+    
+    
+        if ($request->module === 'emergency') {
+            $data = Sos::find($id);
+            $media = json_decode($data->images);
+        } elseif ($request->module === 'consult') {
+            $data = Consult::find($id);
+            $media = json_decode($data->images);
+        } elseif ($request->module === 'ambulance') {
+            $data = Ambulance::find($id);
+            $media = json_decode($data->images);
+        } elseif ($request->module === 'suggestion') {
+            $data = Suggestion::find($id);
+            $media = json_decode($data->images);
+        } elseif ($request->module === 'feedback') {
+            $data = Feedback::find($id);
+            $media = json_decode($data->image);
+        } elseif ($request->module === 'travelsafe') {
+            $data = Travel::find($id);
+            $media = json_decode($data->images);
+        } elseif ($request->module === 'ireport') {
+            $data = Report::find($id);
+            $media = json_decode($data->images);
+        }
+    
+      
+        if ($groupchat) {
+            $groupchat['message'] = json_decode($groupchat->message);
             
-            $groupchat['message'] =  json_decode($groupchat->message);
-            
+           
+            $groupchat['request_media'] = $media;
+    
+  
             $success['status'] = 200;
             $success['message'] = 'Chats found successfully';
             $success['data'] = $groupchat;
             
             return response()->json(['success' => $success]);
-            
-        }else{
-        
-        $error['status'] = 400;
-        $error['message'] = 'not found';
-        
-        return response()->json(['error' => $error]);
-            
-            
+        } else {
+     
+            $success['status'] = 200;
+            $success['message'] = 'No chat found, returning media from the module';
+            $success['request_media'] = $media;
+    
+            return response()->json(['success' => $success]);
         }
-            
     }
+    
     
         
    public function agency_dashboard($id)
@@ -9564,9 +9594,34 @@ public function agency_all_notification($id)
     return response()->json(['success' => $success]);
 }
 
-    
-    
 
+public function read_subacc_notification($id)
+{
+    // Find the sub-account by its ID
+    $subaccount = Sub_Account::find($id);
+
+    // Decode the agency IDs from the sub-account, default to an empty array if null
+    $decoded_agency_ids = json_decode($subaccount->agency_id, true) ?? [];
+
+    // Fetch agency notifications where the agency_id is in the list of decoded agency IDs
+    $agencyNotifications = Agency_Notification::whereIn('agency_id', $decoded_agency_ids)->get();
+
+    // Update the status of each notification to 'read'
+    foreach ($agencyNotifications as $notification) {
+        $notification->status = 'read';
+        $notification->save();
+    }
+
+    // Prepare the success response
+    $success = [
+        'status' => 200,
+        'message' => 'Read Successfully',
+        'data' => $agencyNotifications
+    ];
+
+    // Return the response as JSON
+    return response()->json(['success' => $success]);
+}
 
 
 }
