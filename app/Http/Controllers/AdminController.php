@@ -79,8 +79,8 @@ class AdminController extends Controller
         $input = $request->all();
         $image = time() . '.' . $request->file('image')->extension();
         $path = $request->file('image')->storeAs('banner', $image, ['disk' => 's3']);
-        $url = Storage::disk('s3')->url('banner/' . $image);
-        $input['image'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+        // $url = Storage::disk('s3')->url('banner/' . $image);
+        $input['image'] = "https://storage.kacihelp.com/banner" . $path;
         if ($request->web_link) {
             $input['web_link'] = $request->web_link;
         }
@@ -108,7 +108,7 @@ class AdminController extends Controller
             $image = time() . '.' . $request->file('image')->extension();
             $path = $request->file('image')->storeAs('banner', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('banner/' . $image);
-            $banner->image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $banner->image = "https://storage.kacihelp.com/" . $path;
         } elseif ($request->filled('image')) {
             $banner->image = $request->image;
         }
@@ -168,7 +168,7 @@ class AdminController extends Controller
             $image = rand(00000, 5648421) . '.' . $center['logo']->extension();
             $path = $center['logo']->storeAs('info_back', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('info_back/' . $image);
-            $validatedData['special_call_center'][$index]['logo'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $validatedData['special_call_center'][$index]['logo'] = "https://storage.kacihelp.com/" . $path;
         }
         $infoBank = new Info_Bank();
         $infoBank->toll = $validatedData['toll'];
@@ -211,6 +211,7 @@ class AdminController extends Controller
             'special_call_center.*.number' => 'required',
 
         ]);
+        
 
         $infoBank = Info_Bank::find($id);
         if (!$infoBank) {
@@ -234,7 +235,7 @@ class AdminController extends Controller
                         $path = $center['logo']->storeAs('info_back', $image, ['disk' => 's3']);
                         $url = Storage::disk('s3')->url('info_back/' . $image);
 
-                        $modifiedData['special_call_center'][$index]['logo'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $modifiedData['special_call_center'][$index]['logo'] = "https://storage.kacihelp.com/" . $path;
                         $success['hello'] = 'hello'; 
                     }
                 }
@@ -285,7 +286,7 @@ class AdminController extends Controller
 
         $path = $request->file('logo')->storeAs('help_book_logo', $image, ['disk' => 's3']);
         $url = Storage::disk('s3')->url('help_book_logo/' . $image);
-        $input['logo'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+        $input['logo'] = "https://storage.kacihelp.com/" . $path;
 
         // $uploadedImages = [];
         // foreach ($request->file('images') as $image) {
@@ -325,7 +326,7 @@ class AdminController extends Controller
                 }
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('help_book_images', $uploadedImage, ['disk' => 's3']);
-                $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
                 // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                 $uploadedFiles[] = $uploadedFile;
             }
@@ -398,7 +399,7 @@ class AdminController extends Controller
                 $image = time() . '.' . $request->file('logo')->extension();
                 $path = $request->file('logo')->storeAs('help_book_logo', $image, ['disk' => 's3']);
                 $url = Storage::disk('s3')->url('help_book_logo/' . $image);
-                $help->logo = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $help->logo = "https://storage.kacihelp.com/" . $path;
             } elseif ($request->filled('logo')) {
                 $help->logo = $request->logo;
             }
@@ -432,7 +433,7 @@ class AdminController extends Controller
                     $path = $file->storeAs('help_book_images', $uploadedImage, ['disk' => 's3']);
 
                     // Set the URL of the uploaded image
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
 
                     // Add the uploaded file details to the array
                     $uploadedFiles[] = $uploadedFile;
@@ -661,7 +662,7 @@ class AdminController extends Controller
         $image = time() . '.' . $request->file('logo')->extension();
         $path = $request->file('logo')->storeAs('ambulance_service_logo', $image, ['disk' => 's3']);
         $url = Storage::disk('s3')->url('ambulance_service_logo/' . $image);
-        $input['logo'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+        $input['logo'] = "https://storage.kacihelp.com/" . $path;
         $infoBank = new  Ambulance_Service();
         $infoBank->title = $input['title'];
         $infoBank->logo = $input['logo'];
@@ -743,11 +744,13 @@ class AdminController extends Controller
                 $service->featured = $request->featured;
             }
 
+
+
             if ($request->hasFile('logo')) {
                 $image = time() . '.' . $request->file('logo')->extension();
                 $path = $request->file('logo')->storeAs('ambulance_service_logo', $image, ['disk' => 's3']);
                 $url = Storage::disk('s3')->url('ambulance_service_logo/' . $image);
-                $service->logo = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $service->logo = "https://storage.kacihelp.com/" . $path;
             } elseif ($request->filled('logo')) {
                 $service->logo = $request->logo;
             }
@@ -974,7 +977,7 @@ class AdminController extends Controller
         $image = time() . '.' . $request->file('logo')->extension();
         $path = $request->file('logo')->storeAs('agencies_logo', $image, ['disk' => 's3']);
         $url = Storage::disk('s3')->url('agencies_logo/' . $image);
-        $input['logo'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+        $input['logo'] = "https://storage.kacihelp.com/" . $path;
         $infoBank = new  Agencies();
         $infoBank->title = $input['title'];
         $infoBank->logo = $input['logo'];
@@ -1078,7 +1081,7 @@ class AdminController extends Controller
                 $image = time() . '.' . $request->file('logo')->extension();
                 $path = $request->file('logo')->storeAs('agencies_logo', $image, ['disk' => 's3']);
                 $url = Storage::disk('s3')->url('agencies_logo/' . $image);
-                $service->logo = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $service->logo = "https://storage.kacihelp.com/" . $path;
             } elseif ($request->filled('logo')) {
                 $service->logo = $request->logo;
             }
@@ -2724,7 +2727,7 @@ $subaccount = Sub_Account::find($id);
                 }
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('consult_images', $uploadedImage, ['disk' => 's3']);
-                $uploadedFile->url = 'https://kaci-storage.s3.amazonaws.com/'. $path;
+                $uploadedFile->url = 'https://storage.kacihelp.com/'. $path;
                 // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                 $uploadedFiles[] = $uploadedFile;
             }
@@ -4922,7 +4925,7 @@ public function showAgencyConsult($id)
                 }
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('message_images', $uploadedImage, ['disk' => 's3']);
-                $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
                 // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                 $uploadedFiles[] = $uploadedFile;
             }
@@ -5192,7 +5195,7 @@ public function showAgencyConsult($id)
                 }
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('message_images', $uploadedImage, ['disk' => 's3']);
-                $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
                 $uploadedFiles[] = $uploadedFile;
             }
 
@@ -5443,7 +5446,7 @@ public function showAgencyConsult($id)
             $image = time() . '.' . $request->file('profile_image')->extension();
             $path = $request->file('profile_image')->storeAs('admin-profile', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('admin-profile/' . $image);
-            $user->profile_image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $user->profile_image = "https://storage.kacihelp.com/" . $path;
         } elseif ($request->filled('profile_image')) {
             $user->profile_image = $request->profile_image;
         }
@@ -6083,6 +6086,7 @@ public function showAgencyConsult($id)
     {
         $user = User::find($id);
         if ($user) {
+            $user['imei'] = json_decode($user->imei);
             
             $user['total_reports'] = ReportItem::where('user_id', '=', $user->id)->count();
             $user['total_comments'] = BeepComment::where('user_id', '=', $user->id)->count();
@@ -6162,7 +6166,7 @@ public function showAgencyConsult($id)
             $image = rand(00000, 5245421) . '.' . $request->file('image')->extension();
             $path = $request->file('image')->storeAs('response', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('response/' . $image);
-            $response_Image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $response_Image = "https://storage.kacihelp.com/" . $path;
         } else {
             $response_Image = null;
         }
@@ -6679,7 +6683,6 @@ public function showAgencyConsult($id)
 
                 $fields = json_encode($fields);
 
-
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -6722,44 +6725,119 @@ public function showAgencyConsult($id)
             }
         }
     }
-    public function dashboard()
-    {
-        $data = [];
-        $data['Total_Users'] = User::all()->count();
-        $data['Verified_Users'] = User::where('ksn', '!=', null)->count();
-        $data['General_Countries'] = General_Countries::all()->count();
-        $data['Resident_Countries'] = Country::all()->count();
+    // public function dashboard()
+    // {
+    //     $data = [];
+    //     $data['Total_Users'] = User::all()->count();
+    //     $data['Verified_Users'] = User::where('ksn', '!=', null)->count();
+    //     $data['General_Countries'] = General_Countries::all()->count();
+    //     $data['Resident_Countries'] = Country::all()->count();
+    //     $data['Agencies'] = Agencies::all()->count();
+    //     $data['Ambulances'] = Ambulance::all()->count();
+    //     $data['Climate_Counts'] = Climate::all()->count();
+    //     $kg = Climate::all();
+    //     $tota_kg = 0;
+    //     foreach ($kg as $k) {
+    //         $tota_kg += $k->total;
+    //     }
+    //     $data['Total_Emissions(KG)'] = $tota_kg;
+    //     $data['Emergencies'] = Sos::all()->count();
+
+    //     $data['TravelSafe'] = Travel::all()->count();
+
+    //     $data['Suggestions'] = Suggestion::all()->count();
+    //     $data['Feedbacks'] = Feedback::all()->count();
+    //     $data['iReports'] = Report::all()->count();
+
+    //     $data['Kaci_Code'] = Kaci_Code::all()->count();
+    //     $data['Beeps'] = Beep::all()->count();
+    //     $data['Consultations'] = Consult::all()->count();
+    //     $data['Comments'] = BeepComment::all()->count();
+    //     $data['Reports'] = ReportItem::all()->count();
+
+
+    //     $success['data'] = $data;
+    //     $success['status'] = 200;
+    //     $success['message'] = 'All details';
+
+    //     return response()->json(['success' => $success], $this->successStatus);
+    // }
+
+
+   public function dashboard($id)
+{
+   
+    $admin  = Sub_Admin::find($id);
+    $privilage = json_decode($admin->privilage);  
+
+    $data = [];
+
+
+
+
+    if (isset($privilage->agencies) && $privilage->agencies->view === true) {
         $data['Agencies'] = Agencies::all()->count();
+    }
+    if (isset($privilage->ambulance_service) && $privilage->ambulance_service->view === true) {
         $data['Ambulances'] = Ambulance::all()->count();
-        $data['Climate_Counts'] = Climate::all()->count();
+    }
+    if (isset($privilage->climate_management) && $privilage->climate_management->view === true) {
         $kg = Climate::all();
-        $tota_kg = 0;
+        $total_kg = 0;
         foreach ($kg as $k) {
-            $tota_kg += $k->total;
+            $total_kg += $k->total;
         }
-        $data['Total_Emissions(KG)'] = $tota_kg;
+        $data['Total_Emissions(KG)'] = $total_kg;
+        $data['Climate_Counts'] = Climate::all()->count();
+    }
+    if (isset($privilage->emergency_management) && $privilage->emergency_management->view === true) {
         $data['Emergencies'] = Sos::all()->count();
-
+    }
+    if (isset($privilage->travelsafe_management) && $privilage->travelsafe_management->view === true) {
         $data['TravelSafe'] = Travel::all()->count();
-
+    }
+    if (isset($privilage->suggestion_management) && $privilage->suggestion_management->view === true) {
         $data['Suggestions'] = Suggestion::all()->count();
+    }
+    if (isset($privilage->feedback_management) && $privilage->feedback_management->view === true) {
         $data['Feedbacks'] = Feedback::all()->count();
+    }
+    if (isset($privilage->ireport_management) && $privilage->ireport_management->view === true) {
         $data['iReports'] = Report::all()->count();
-
+    }
+    if (isset($privilage->kaci_code_management) && $privilage->kaci_code_management->view === true) {
         $data['Kaci_Code'] = Kaci_Code::all()->count();
+    }
+    if (isset($privilage->beep_management) && $privilage->beep_management->view === true) {
         $data['Beeps'] = Beep::all()->count();
-        $data['Consultations'] = Consult::all()->count();
         $data['Comments'] = BeepComment::all()->count();
+    }
+    if (isset($privilage->consultation_management) && $privilage->consultation_management->view === true) {
+        $data['Consultations'] = Consult::all()->count();
+    }
+    if (isset($privilage->reports) && $privilage->reports->view === true) {
         $data['Reports'] = ReportItem::all()->count();
-
-
-        $success['data'] = $data;
-        $success['status'] = 200;
-        $success['message'] = 'All details';
-
-        return response()->json(['success' => $success], $this->successStatus);
     }
 
+    if (isset($privilage->users_management) && $privilage->users_management->view === true) {
+        $data['Total_Users'] = User::all()->count();
+        $data['Verified_Users'] = User::where('ksn', '!=', null)->count();
+    }
+    
+    if(isset($privilage->general_countries) && $privilage->general_countries->view === true){
+        $data['General_Countries'] = General_Countries::all()->count();
+    }
+    
+    if(isset($privilage->resident_countries) && $privilage->resident_countries->view === true){
+            $data['Resident_Countries'] = Country::all()->count();
+    }
+    
+    $success['data'] = $data;
+    $success['status'] = 200;
+    $success['message'] = 'All details';
+
+    return response()->json(['success' => $success], $this->successStatus);
+}
 
     public function date_wise_dashboard(Request $request)
     {
@@ -6828,13 +6906,6 @@ public function showAgencyConsult($id)
 
         return response()->json(['success' => $success], $this->successStatus);
     }
-
-
-
-
-
-
-
 
     public function show_admin_notification($id)
     {
@@ -6906,7 +6977,7 @@ public function showAgencyConsult($id)
         $image = time() . '.' . $request->file('image')->extension();
         $path = $request->file('image')->storeAs('popup', $image, ['disk' => 's3']);
         $url = Storage::disk('s3')->url('popup/' . $image);
-        $input['image'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+        $input['image'] = "https://storage.kacihelp.com/" . $path;
         $popup1 = Popup::create($input);
 
         $success['popup'] = $popup1;
@@ -6931,7 +7002,7 @@ public function showAgencyConsult($id)
             $image = time() . '.' . $request->file('image')->extension();
             $path = $request->file('image')->storeAs('popup', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('popup/' . $image);
-            $popup->image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $popup->image = "https://storage.kacihelp.com/" . $path;
         } elseif ($request->filled('image')) {
             $popup->image = $request->image;
         }
@@ -6992,8 +7063,8 @@ public function showAgencyConsult($id)
         $request->validate(['country' => 'required']);
 
         $data = [];
-        $data['Total_Users'] = User::where('country', '=', $request->country)->count();
-        $data['Verified_Users'] = User::where('ksn', '!=', null)->where('country', '=', $request->country)->count();
+        $data['Total_Users'] = User::where('resident_country', '=', $request->country)->count();
+        $data['Verified_Users'] = User::where('ksn', '!=', null)->where('resident_country', '=', $request->country)->count();
 
         $data['General_Countries'] = General_Countries::all()->count();
         $data['Resident_Countries'] = Country::all()->count();
@@ -7505,7 +7576,7 @@ public function showAgencyConsult($id)
             $image = rand(00000, 5245421) . '.' . $request->file('image')->extension();
             $path = $request->file('image')->storeAs('response', $image, ['disk' => 's3']);
             $url = Storage::disk('s3')->url('response/' . $image);
-            $response_Image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $response_Image = "https://storage.kacihelp.com/" . $path;
         } else {
             $response_Image = null;
         }
@@ -7867,7 +7938,7 @@ public function live_chat(Request $request, $id)
 
             $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
             $path = $file->storeAs('chat-media', $uploadedImage, ['disk' => 's3']);
-            $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
             $uploadedFile->name = $originalName;
             $uploadedFiles[] = $uploadedFile;
         }
@@ -8125,7 +8196,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
 
                     $uploadedImage = rand(1000, 9999) . '.' . $extension;
                     $path = $file->storeAs('message_files', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
                     $uploadedFiles[] = $uploadedFile;
                 }
 
@@ -8283,7 +8354,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
 
                     $mediaName = rand(1000, 9999) . '.' . $extension;
                     $path = $mediaFile->storeAs('beep-media', $mediaName, ['disk' => 's3']);
-                    $mediaObject->url = 'https://kaci-storage.s3.amazonaws.com/' . $path;
+                    $mediaObject->url = 'https://storage.kacihelp.com/' . $path;
 
                     $mediaFiles[] = $mediaObject;
                 }
@@ -8524,7 +8595,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
 
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('beep-media', $uploadedImage, ['disk' => 's3']);
-                $uploadFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $uploadFile->url = "https://storage.kacihelp.com/" . $path;
                 $uploadFiles[] = $uploadFile;
             }
 
@@ -8535,7 +8606,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
         if ($image) {
             $imageName = rand(1000, 9999) . '.' . $image->extension();
             $path = $image->storeAs('beep-media', $imageName, ['disk' => 's3']);
-            $input['profile_image'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $input['profile_image'] = "https://storage.kacihelp.com/" . $path;
         }
 
         $beep = SponsoredBeep::create($input);
@@ -8631,7 +8702,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
             if ($request->file('profile_image')) {
                 $imageName = rand(1000, 9999) . '.' . $request->file('profile_image')->extension();
                 $path = $imageName->storeAs('beep-media', $imageName, ['disk' => 's3']);
-                $beep->profile_image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $beep->profile_image = "https://storage.kacihelp.com/" . $path;
             }
 
             $beep->save();
@@ -8856,9 +8927,9 @@ public function edit_chat_message(Request $request, $id, $messageId)
             }
             
         
-            $data['Total_Users'] = User::where('country', '=', $request->country)->count();
-            $data['Verified_Users'] = User::where('ksn', '!=', null)->where('country', '=', $request->country)->count();
-            $data['UnVerified_Users'] = User::where('ksn', '=', null)->where('country', '=', $request->country)->count();
+            $data['Total_Users'] = User::where('resident_country', '=', $request->country)->count();
+            $data['Verified_Users'] = User::where('ksn', '!=', null)->where('resident_country', '=', $request->country)->count();
+            $data['UnVerified_Users'] = User::where('ksn', '=', null)->where('resident_country', '=', $request->country)->count();
             
         
             $pendingAmbulance = Ambulance::where('country', '=', $request->country)->where('status', '=', 'Pending')->count();
@@ -8996,7 +9067,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
        if ($request->hasfile('profile_image')) {
             $image = rand(00000000000, 35321231251231) . '.' . $request->file('profile_image')->extension();
             $path = $request->file('profile_image')->storeAs('profile', $image, ['disk' => 's3']);
-            $input['profile_image'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+            $input['profile_image'] = "https://storage.kacihelp.com/" . $path;
         }
         
         
@@ -9076,7 +9147,7 @@ public function edit_chat_message(Request $request, $id, $messageId)
              if ($request->hasfile('profile_image')) {
                 $image = rand(00000000000, 35321231251231) . '.' . $request->file('profile_image')->extension();
                 $path = $request->file('profile_image')->storeAs('profile', $image, ['disk' => 's3']);
-                $input['profile_image'] = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $input['profile_image'] = "https://storage.kacihelp.com/" . $path;
             }
 
             $agency->save();
@@ -9423,7 +9494,7 @@ public function agency_all_notification($id)
         if ($request->module === 'emergency') {
             $data = Sos::find($id);
             $media = json_decode($data->images);
-        } elseif ($request->module === 'consult') {
+        } elseif ($request->module === 'consultation') {
             $data = Consult::find($id);
             $media = json_decode($data->images);
         } elseif ($request->module === 'ambulance') {
@@ -9446,11 +9517,7 @@ public function agency_all_notification($id)
       
         if ($groupchat) {
             $groupchat['message'] = json_decode($groupchat->message);
-            
-           
             $groupchat['request_media'] = $media;
-    
-  
             $success['status'] = 200;
             $success['message'] = 'Chats found successfully';
             $success['data'] = $groupchat;

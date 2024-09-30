@@ -358,7 +358,6 @@ class AppController extends Controller
 
     // }
 
-
     //             $user->save();
     //              $country=General_Countries::where('country_name','=',$user->country)->first();
     //         $user['country_code']=$country->country_code;
@@ -423,7 +422,7 @@ class AppController extends Controller
                 $image = rand(00000000000, 35321231251231) . '.' . $request->file('profile_image')->extension();
                 $path = $request->file('profile_image')->storeAs('profile', $image, ['disk' => 's3']);
                 $url = Storage::disk('s3')->url('profile/' . $image);
-                $user->profile_image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $user->profile_image = "https://storage.kacihelp.com/" . $path;
                 
             } elseif ($request->filled('profile_image')) {
                 $user->profile_image = $request->profile_image;
@@ -841,7 +840,7 @@ class AppController extends Controller
                 $image = rand(00000000000, 35321231251231) . '.' . $request->file('profile_image')->extension();
                 $path = $request->file('profile_image')->storeAs('profile', $image, ['disk' => 's3']);
                 $url = Storage::disk('s3')->url('profile/' . $image);
-                $user->profile_image = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $user->profile_image = "https://storage.kacihelp.com/profile_image" . $path;
             } elseif ($request->filled('profile_image')) {
                 $user->profile_image = $request->profile_image;
             }
@@ -1193,12 +1192,11 @@ class AppController extends Controller
                         } elseif (in_array($extension, ['pdf'])) {
                             $uploadedFile->type = 'pdf';
                         } else {
-                            // You can handle other file types if needed
                             $uploadedFile->type = 'unknown';
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('feedback_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                         $uploadedFiles[] = $uploadedFile;
                     }
@@ -1378,7 +1376,7 @@ class AppController extends Controller
                     }
                     $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                     $path = $file->storeAs('feedback_images', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/feedback_images/" . $path;
                     // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                     $uploadedFiles[] = $uploadedFile;
                 }
@@ -2281,7 +2279,7 @@ class AppController extends Controller
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('ambulance_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/ambulance_images" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                         $uploadedFiles[] = $uploadedFile;
                     }
@@ -2500,11 +2498,8 @@ class AppController extends Controller
                         $uploadedFiles = [];
 
                         foreach ($request->file('images') as $file) {
-                            $uploadedFile = new \stdClass(); // Use \stdClass directly without the namespace
-
-                            $extension = $file->extension(); // Get the file extension
-
-                            // Determine the type of the file based on its extension
+                            $uploadedFile = new \stdClass(); 
+                            $extension = $file->extension(); 
                             if (in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                                 $uploadedFile->type = 'image';
                             } elseif (in_array($extension, ['mp4', 'avi', 'mov', 'bin'])) {
@@ -2518,12 +2513,12 @@ class AppController extends Controller
                             } elseif (in_array($extension, ['pdf'])) {
                                 $uploadedFile->type = 'pdf';
                             } else {
-                                // You can handle other file types if needed
                                 $uploadedFile->type = 'unknown';
                             }
                             $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                             $path = $file->storeAs('ambulance_images', $uploadedImage, ['disk' => 's3']);
-                            $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                            $uploadedFile->url = "https://storage.kacihelp.com/ambulance_images" . $path;
+                            
                             // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                             $uploadedFiles[] = $uploadedFile;
                         }
@@ -3177,7 +3172,7 @@ public function store_travelsafe(Request $request, $id)
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('travel_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/travel_images/" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                         $uploadedFiles[] = $uploadedFile;
                     }
@@ -3352,7 +3347,7 @@ public function store_travelsafe(Request $request, $id)
                             }
                             $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                             $path = $file->storeAs('travel_images', $uploadedImage, ['disk' => 's3']);
-                            $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                            $uploadedFile->url = "https://storage.kacihelp.com/travel_images" . $path;
                             // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                             $uploadedFiles[] = $uploadedFile;
                         }
@@ -4375,7 +4370,7 @@ public function store_travelsafe(Request $request, $id)
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('sos_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/sos_images/" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
 
                         $uploadedFiles[] = $uploadedFile;
@@ -4767,7 +4762,7 @@ public function store_travelsafe(Request $request, $id)
                             }
                             $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                             $path = $file->storeAs('sos_images', $uploadedImage, ['disk' => 's3']);
-                            $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                            $uploadedFile->url = "https://storage.kacihelp.com/sos_images" . $path;
                             $uploadedFiles[] = $uploadedFile;
                         }
 
@@ -5170,7 +5165,7 @@ public function store_travelsafe(Request $request, $id)
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('report_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/report_images" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                         $uploadedFiles[] = $uploadedFile;
                     }
@@ -5293,7 +5288,7 @@ public function store_travelsafe(Request $request, $id)
                             'notification' => 'New Report Request',
                             'name' => $user->firstname,
                             'agency_id' => $agency->id,
-                            'type' => 'ireports'
+                            'type' => 'ireport'
                         ]);
 
                 try {
@@ -5414,7 +5409,7 @@ public function store_travelsafe(Request $request, $id)
                     }
                     $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                     $path = $file->storeAs('report_images', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/report_images" . $path;
                     // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                     $uploadedFiles[] = $uploadedFile;
                 }
@@ -5536,7 +5531,7 @@ public function store_travelsafe(Request $request, $id)
                             'name' => $user->firstname,
                             'status' => 'Unread',
                         'agency_id' => $agency->id,
-                            'type' => 'ireports'
+                            'type' => 'ireport'
                         ]);
             try {
 
@@ -6139,7 +6134,7 @@ public function store_consult(Request $request, $id)
                     }
                     $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                     $path = $file->storeAs('consult_images', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/consult_images" . $path;
 
                     $uploadedFiles[] = $uploadedFile;
                 }
@@ -6353,7 +6348,7 @@ public function store_consult(Request $request, $id)
                 }
                 $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                 $path = $file->storeAs('consult_images', $uploadedImage, ['disk' => 's3']);
-                $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                $uploadedFile->url = "https://storage.kacihelp.com/consult_images" . $path;
 
                 $uploadedFiles[] = $uploadedFile;
             }
@@ -6563,7 +6558,7 @@ public function store_consult(Request $request, $id)
                         }
                         $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                         $path = $file->storeAs('suggestion_images', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                        $uploadedFile->url = "https://storage.kacihelp.com/suggestion_images" . $path;
                         // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                         $uploadedFiles[] = $uploadedFile;
                     }
@@ -6759,7 +6754,7 @@ public function store_consult(Request $request, $id)
                     }
                     $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
                     $path = $file->storeAs('suggestion_images', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    $uploadedFile->url = "https://storage.kacihelp.com/suggestion_images" . $path;
                     // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
                     $uploadedFiles[] = $uploadedFile;
                 }
@@ -8530,9 +8525,9 @@ public function store_consult(Request $request, $id)
                 $uploadedFiles = [];
 
                 foreach ($request->file('media') as $file) {
-                    $uploadedFile = new \stdClass(); // Use \stdClass directly without the namespace
+                    $uploadedFile = new \stdClass(); 
 
-                    $extension = $file->extension(); // Get the file extension
+                    $extension = $file->extension();
 
                     if (in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                         $uploadedFile->type = 'image';
@@ -8547,12 +8542,12 @@ public function store_consult(Request $request, $id)
                     } elseif (in_array($extension, ['pdf'])) {
                         $uploadedFile->type = 'pdf';
                     } else {
-                        // You can handle other file types if needed
                         $uploadedFile->type = 'unknown';
                     }
-                    $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
+                    $uploadedImage =rand(1000,9999). '.' . $file->extension();
                     $path = $file->storeAs('beep-media', $uploadedImage, ['disk' => 's3']);
-                    $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
+                    // $uploadedFile->url= Storage::disk('s3')->url('beep-media/' . $uploadedImage);
+                     $uploadedFile->url = 'https://storage.kacihelp.com/beep-media/' . $uploadedImage;
                     $uploadedFiles[] = $uploadedFile;
                 }
 
@@ -8581,9 +8576,9 @@ public function store_consult(Request $request, $id)
                     $uploadedFiles = [];
 
                     foreach ($request->file('media') as $file) {
-                        $uploadedFile = new \stdClass(); // Use \stdClass directly without the namespace
+                        $uploadedFile = new \stdClass(); 
 
-                        $extension = $file->extension(); // Get the file extension
+                        $extension = $file->extension(); 
 
                         if (in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                             $uploadedFile->type = 'image';
@@ -8598,14 +8593,13 @@ public function store_consult(Request $request, $id)
                         } elseif (in_array($extension, ['pdf'])) {
                             $uploadedFile->type = 'pdf';
                         } else {
-                            // You can handle other file types if needed
                             $uploadedFile->type = 'unknown';
                         }
-                        $uploadedImage = rand(1000, 9999) . '.' . $file->extension();
-                        $path = $file->storeAs('beep-media', $uploadedImage, ['disk' => 's3']);
-                        $uploadedFile->url = "https://kaci-storage.s3.amazonaws.com/" . $path;
-                        // $uploadedFile->url = $file->storeAs('sos_images', rand(1000, 9999) . '.' . $extension, ['disk' => 's3']);
-                        $uploadedFiles[] = $uploadedFile;
+                     $uploadedImage =rand(1000,9999). '.' . $file->extension();
+                    $path = $file->storeAs('beep-media', $uploadedImage, ['disk' => 's3']);
+                    // $uploadedFile->url= Storage::disk('s3')->url('beep-media/' . $uploadedImage);
+                     $uploadedFile->url = 'https://storage.kacihelp.com/beep-media/' . $uploadedImage;
+                    $uploadedFiles[] = $uploadedFile;
                     }
 
                     $input['media'] = json_encode($uploadedFiles);
@@ -9006,7 +9000,6 @@ public function beep_comment(Request $request, $id, $beep_id)
                 $beeps->comment = $beeps->comment + 1;
 
 
-
                 $user = User::find($id);
                 
                 $notification = Notification::create([
@@ -9332,9 +9325,6 @@ public function beep_comment(Request $request, $id, $beep_id)
         }
     }
     
-    
-
-       
     }
 
 
@@ -10443,7 +10433,7 @@ private function formatCount($count)
 
                     $mediaName = rand(1000, 9999) . '.' . $extension;
                     $path = $mediaFile->storeAs('beep-media', $mediaName, ['disk' => 's3']);
-                    $mediaObject->url = 'https://kaci-storage.s3.amazonaws.com/' . $path;
+                    $mediaObject->url = 'https://storage.kacihelp.com/beep-media' . $path;
 
                     $mediaFiles[] = $mediaObject;
                 }
@@ -10960,11 +10950,4 @@ public function delete_climate_beep($id){
         }
        
     }
-    
-    
-    
-    
-    
-
-
 }

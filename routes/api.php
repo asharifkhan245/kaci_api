@@ -1,4 +1,4 @@
- <?php
+<?php
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
@@ -251,7 +251,7 @@ Route::post('/delete-climate/{id}',[AppController::class,'delete_climate']);
 Route::post('/response/{id}',[AdminController::class,'response']);
 
 
-Route::get('/dashboard',[AdminController::class,'dashboard']);
+Route::get('/dashboard/{id}',[AdminController::class,'dashboard']);
 Route::post('date-wise-dashboard', [AdminController::class,'date_wise_dashboard']);
 Route::post('/notify-status/{id}',[AppController::class,'notify_status']);
 
@@ -402,7 +402,9 @@ Route::get('/all-notification/{id}', [AppController::class,'all_notification']);
 Route::get('/read-notification/{id}', [AppController::class,'read_notification']);
 Route::get('agency-all-notification/{id}', [AdminController::class,'agency_all_notification']);
 Route::get('/read-all-notifications/{id}', [AdminController::class, 'read_all_agency_notifications']);
-Route::get('/read-subacc-notification/{id}', [AdminController::class, 'read_subacc_notification']);
+Route::get('/read-subaccount-notifications/{id}',[AdminController::class,'read_subaccount_notifications']);
+
+
 
 
 Route::post('/store-subaccount', [AdminController::class,'store_subaccount']);

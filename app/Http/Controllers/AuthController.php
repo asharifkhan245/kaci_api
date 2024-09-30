@@ -208,8 +208,9 @@ $responseBody = $response->getBody()->getContents();
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
-
+            
         $input=$request->all();
+       $input['imei'] = $request->imei ? json_encode([$request->imei]) : json_encode([]);
         $user = User::create($input);
 
         $accessToken = $user->createToken('authToken')->accessToken;
@@ -278,7 +279,60 @@ $responseBody = $response->getBody()->getContents();
         return response()->json(['success' => $success], $this->successStatus);
         
     }
-    public function login(Request $request)
+    // public function login(Request $request)
+    // {
+    //     $data = $request->validate([
+    //         'phone_number'=>'required',
+    //         'password'=>'required',
+    //         'country'=>'required',
+    //         'device_name'=>'required',
+    //         'device_token'=>'required',
+    //         'coordinate'=>'required',
+    //     ]);
+    //     $user = User::where('phone_number', $data['phone_number'])
+    //     ->where('password', $data['password'])
+    //     ->where('country', $data['country'])
+    //     ->where('status', '!=', 'Delete')->first();
+        
+    //   if($user){
+    //       if($user->status != 'InActive'){
+               
+    //             $user->tokens()->delete();
+    //           $token = $user->createToken('authToken')->accessToken;
+            
+    //     $user->device_name=$request->device_name;
+    //     $user->device_token=$request->device_token;
+    //     $user->save();
+    //       $success['token']=$token;
+    //       $country=General_Countries::where('country_name','=',$user->country)->first();
+    //     $user['country_code']=$country->country_code;
+    //     $user['flag_code']=$country->flag_code;
+    //      if($request->coordinate){
+    //               $user_location=User_Location::create(
+    //             ['coordinate'=>$request->coordinate,
+    //             'user_id'=>$user->id]
+    //             );
+    //         }
+    //         $resident_country=Country::where('country','=',$user->resident_country)->first();
+    //      $user['resident_country_code']=$resident_country->country_code;
+    //     $user['resident_flag_code']=$resident_country->flag_code;
+    //         $success['data'] = $user;
+    //         $success['status'] = 200;
+    //         return response()->json(['success' => $success], $this->successStatus); 
+    //       }else{
+    //              $success['status']=400;
+    //     $success['message']="Account Block";
+    //     return response()->json(['error' => $success]);
+    //       }
+        
+    //     } else {
+    //         return response()->json(['error' => 'Unauthorised'], 401);
+    //     }
+    // }
+
+
+
+ public function login(Request $request)
     {
         $data = $request->validate([
             'phone_number'=>'required',
@@ -299,22 +353,39 @@ $responseBody = $response->getBody()->getContents();
                 $user->tokens()->delete();
               $token = $user->createToken('authToken')->accessToken;
             
-        $user->device_name=$request->device_name;
-        $user->device_token=$request->device_token;
-        $user->save();
-          $success['token']=$token;
-           $country=General_Countries::where('country_name','=',$user->country)->first();
+                $user->device_name=$request->device_name;
+                $user->device_token=$request->device_token;
+                
+
+            $imeiArray = $user->imei ? json_decode($user->imei, true) : [];
+
+            if (!is_array($imeiArray)) {
+                $imeiArray = [];
+            }
+
+            if ($request->imei && !in_array($request->imei, $imeiArray)) {
+                $imeiArray[] = $request->imei;
+                $user->imei = json_encode($imeiArray);
+            }
+
+            $user->save();
+
+
+        $success['token']=$token;
+        $country=General_Countries::where('country_name','=',$user->country)->first();
         $user['country_code']=$country->country_code;
         $user['flag_code']=$country->flag_code;
-         if($request->coordinate){
+        if($request->coordinate){
                   $user_location=User_Location::create(
                 ['coordinate'=>$request->coordinate,
                 'user_id'=>$user->id]
                 );
             }
-            $resident_country=Country::where('country','=',$user->resident_country)->first();
-         $user['resident_country_code']=$resident_country->country_code;
+        $resident_country=Country::where('country','=',$user->resident_country)->first();
+        $user['resident_country_code']=$resident_country->country_code;
         $user['resident_flag_code']=$resident_country->flag_code;
+        
+    
             $success['data'] = $user;
             $success['status'] = 200;
             return response()->json(['success' => $success], $this->successStatus); 
@@ -328,7 +399,6 @@ $responseBody = $response->getBody()->getContents();
             return response()->json(['error' => 'Unauthorised'], 401);
         }
     }
-
 
 //     public function change_password(Request $request,$id){
 //         $request->validate([
